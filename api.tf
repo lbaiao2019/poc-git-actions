@@ -1,5 +1,5 @@
 module "api_module" {
-  source = "../api_gateway"
+  source = "./api_gateway"
 
   application = "poc-git-actions"
 

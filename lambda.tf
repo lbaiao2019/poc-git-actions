@@ -1,5 +1,5 @@
 module "lambda_application" {
-  source = "../lambda"
+  source = "./lambda"
 
   depends_on = [
     null_resource.build,
