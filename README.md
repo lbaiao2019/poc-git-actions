@@ -1,3 +1,1 @@
 # poc-git-actions
-
-../.../..
