@@ -63,10 +63,7 @@ refresh: init
 	terraform refresh $(VARS) $(VARFILE) .
 
 plan: init
-	echo $(VARS)
-	echo $(VARFILE)
-	echo $(REGION)
-	#terraform plan -detailed-exitcode $(VARS) $(VARFILE) -out tfplan .;EXC=$$?;if [ $$EXC -eq 1 ]; then exit 1; else if [ $$EXC -eq 0 ]; then rm -f tfplan; fi; exit 0; fi;
+	terraform plan -detailed-exitcode $(VARS) $(VARFILE) -out tfplan
 
 apply:
 	terraform apply tfplan
