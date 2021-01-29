@@ -16,6 +16,8 @@ jobs:
     
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.14.3
       
     - name: Make plan
       run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
