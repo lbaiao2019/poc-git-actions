@@ -7,19 +7,22 @@ on:
 
 jobs:
   Terraform:
-    name: Terraform Plan
+    name: Build Stage
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: 'eu-west-1'
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
     steps:
-
     - name: Checkout Repo
       uses: actions/checkout@v2
     
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
-
+      with:
+        terraform_version: 0.14.3
+      
     - name: Init CI
       run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
