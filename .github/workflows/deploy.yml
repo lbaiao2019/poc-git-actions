@@ -17,16 +17,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-    
-    - name: Terraform Setup
-      uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: 0.14.3
-      
-    - id: Make plan
-      run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
-
-    - id: Make apply
-      run: make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+    - uses: actions/checkout@v2
+    - uses: hashicorp/setup-terraform@v1.2.1
+    - run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+    - run: make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
