@@ -48,8 +48,9 @@ def _success(message, code):
         message = json.loads(message)
 
     response =  {
+        "isBase64Encoded": False,
         "statusCode": code,
-        "body": { "Message": message },
+        "body": json.dumps({ "Message": message }),
         "headers": {
             "Content-Type": "application/json",
         }

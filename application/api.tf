@@ -8,11 +8,9 @@ module "api_module" {
   # Api Gateway Resource
   path_parts = ["app"]
 
-  http_methods = ["POST"]
+  http_methods = ["GET"]
 
-  request_parameters = [{
-    "method.request.querystring.key" = "true"
-    }]
+  request_parameters = []
 
   uri = [module.lambda_application.lambda_invoke_arn]
 }
