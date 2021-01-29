@@ -63,10 +63,10 @@ refresh: init
 	terraform refresh $(VARS) $(VARFILE) .
 
 plan: init
-	terraform plan $(VARS) $(VARFILE) -out=tfplan .;EXC=$$?;if [ $$EXC -eq 1 ]; then exit 1; else if [ $$EXC -eq 0 ]; then rm -f tfplan; fi; exit 0; fi;
+	terraform plan $(VARS) $(VARFILE) .;EXC=$$?;if [ $$EXC -eq 1 ]; then exit 1; else if [ $$EXC -eq 0 ]; then rm -f tfplan; fi; exit 0; fi;
 
 apply:
-	terraform apply tfplan
+	terraform apply 
 	rm tfplan
 	terraform taint null_resource.build
 	
