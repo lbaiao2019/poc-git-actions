@@ -1,7 +1,7 @@
-name: Pull Request
+name: Push
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -27,3 +27,6 @@ jobs:
       
     - name: Make plan
       run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+
+    - name: Make apply
+      run: make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
