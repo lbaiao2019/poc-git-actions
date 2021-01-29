@@ -63,7 +63,7 @@ refresh: init
 	terraform refresh $(VARS) $(VARFILE) .
 
 plan: init
-	terraform plan -detailed-exitcode $(VARS) $(VARFILE) 
+	terraform plan -detailed-exitcode $(VARS) $(VARFILE) .
 
 apply:
 	terraform apply tfplan
