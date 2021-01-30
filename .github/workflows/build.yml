@@ -27,7 +27,7 @@ jobs:
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
       with:
-         terraform_version: ${{env.TF_VERSION}
+        terraform_version: ${{env.TF_VERSION} 
       
     - name: Building
       id: apply
