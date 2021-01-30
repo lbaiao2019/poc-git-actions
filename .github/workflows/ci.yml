@@ -32,5 +32,5 @@ jobs:
       id: plan
       working-directory: ${{env.WORKDIR}}
       run: |
-        apt install make
+        sudo apt install make
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
