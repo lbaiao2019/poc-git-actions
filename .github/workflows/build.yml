@@ -16,6 +16,7 @@ jobs:
       AWS_REGION: 'us-east-1'
       ENVNAME: 'test'
       ACCNAME: 'poc-lbaiao'
+      TF_VERSION: 0.14.3
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       WORKDIR: './'
 
@@ -26,7 +27,7 @@ jobs:
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 0.14.3
+         terraform_version: ${{env.TF_VERSION}
       
     - name: Building
       id: apply
