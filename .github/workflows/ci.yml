@@ -32,6 +32,5 @@ jobs:
       id: plan
       working-directory: ${{env.WORKDIR}}
       run: |
-        export TF_LOG=TRACE
-        export TF_LOG_PATH="terraform.txt"
+        export TF_LOG=DEBUG
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
