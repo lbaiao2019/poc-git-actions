@@ -1,4 +1,4 @@
-name: Push
+yname: Push
 
 on:
   push:
@@ -25,9 +25,7 @@ jobs:
       with:
         terraform_version: 0.14.3
       
-    - name: Make plan
-      run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
-    - name: dir directory
-      run: ls -R
-    - name: Make apply
-      run: make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+    - name: Make Deploy
+      run: |
+        make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+        make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
