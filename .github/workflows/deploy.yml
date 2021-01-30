@@ -30,5 +30,8 @@ jobs:
       working-directory: '.'      
       run: |
         make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+        echo ${{ steps.plan.outputs.stdout }}
+        echo ${{ steps.plan.outputs.stderr }}
+        echo ${{ steps.plan.outputs.exitcode }}        
         ls -l
         make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
