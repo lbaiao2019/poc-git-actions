@@ -1,4 +1,4 @@
-name: Terraform CD
+name: Terraform Build
 
 on:
   push:
@@ -28,13 +28,9 @@ jobs:
       with:
         terraform_version: 0.14.3
       
-    - name: Make plan
-      id: plan
-      working-directory: ${{env.WORKDIR}}
-      run: make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
-
-    - name: Make apply
-      id: deploy
+    - name: Building
+      id: apply
       working-directory: ${{env.WORKDIR}}
       run: |
+        make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'        
         make apply 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
