@@ -1,4 +1,4 @@
-yname: Push
+name: Push
 
 on:
   push:
