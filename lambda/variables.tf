@@ -50,7 +50,7 @@ variable "tags" {
 }
 
 variable "statement_id" {
-  default = null  
+  default = null
 }
 
 variable "action" {
@@ -59,7 +59,7 @@ variable "action" {
 }
 
 variable "principal" {
-  default = null  
+  default = null
 }
 
 variable "source_arn" {

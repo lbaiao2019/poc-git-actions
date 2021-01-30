@@ -32,7 +32,7 @@ resource "aws_lambda_function" "default" {
 }
 
 resource "aws_lambda_permission" "default" {
-  count = var.statement_id != null ? 1 : 0
+  count         = var.statement_id != null ? 1 : 0
   statement_id  = var.statement_id
   action        = var.action
   function_name = aws_lambda_function.default.arn

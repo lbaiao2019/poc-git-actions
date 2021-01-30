@@ -18,7 +18,7 @@ module "lambda_application" {
 
 
   environment_variables = {
-    ENV_REGION   = var.aws_region
+    ENV_REGION = var.aws_region
   }
 
   statement_id = "AllowExecutionFromAPIGateway"

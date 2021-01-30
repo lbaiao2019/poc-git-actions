@@ -1,10 +1,10 @@
 variable "application" {
-  type    = string
+  type = string
 }
 
 variable "path_parts" {
-  type        = list(any)
-  default     = []
+  type    = list(any)
+  default = []
 }
 
 variable "http_methods" {

@@ -35,9 +35,9 @@ resource "aws_api_gateway_integration" "default" {
 
 
 resource "aws_api_gateway_deployment" "default" {
-  rest_api_id       = aws_api_gateway_rest_api.default.id
-  stage_name        = var.stage_name
-  depends_on = [aws_api_gateway_method.default, aws_api_gateway_integration.default]
+  rest_api_id = aws_api_gateway_rest_api.default.id
+  stage_name  = var.stage_name
+  depends_on  = [aws_api_gateway_method.default, aws_api_gateway_integration.default]
 }
 resource "aws_api_gateway_usage_plan" "default" {
   name = "${var.application}_plan"
