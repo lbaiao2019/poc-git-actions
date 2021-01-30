@@ -31,4 +31,6 @@ jobs:
     - name: Terraform Plan Status
       id: plan
       working-directory: ${{env.WORKDIR}}
-      run: make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
+      run: |
+        apt install make
+        make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
