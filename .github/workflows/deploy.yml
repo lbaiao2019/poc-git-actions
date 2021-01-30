@@ -15,6 +15,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: 'eu-west-1'
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      WORKDIR: './automation
 
     steps:
     - name: Checkout Repo
@@ -28,6 +29,7 @@ jobs:
     - name: Make plan
       id: plan
       run: make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
-
+      with:
+        working-directory : ${{ env.WORKDIR }}
     - name: Make apply
       run: make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
