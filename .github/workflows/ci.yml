@@ -30,8 +30,7 @@ jobs:
       
     - name: Terraform Plan Status
       id: plan
-      working-directory: ${{env.WORKDIR}}
-      run: |        
+      run: |
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
         terraform_exitcode=$?
         if [ $terraform_exitcode -eq 2 ]; then
@@ -39,4 +38,4 @@ jobs:
         else
           echo "ERROR: terraform exited with code $terraform_exitcode"
           exit 1
-        fi        
+        fi
