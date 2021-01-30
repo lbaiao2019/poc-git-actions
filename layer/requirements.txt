@@ -19,3 +19,4 @@ six==1.15.0
 urllib3==1.26.2
 userpath==1.4.1
 wrapt==1.12.1
+setuptools=52.0.0
