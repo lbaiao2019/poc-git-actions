@@ -28,4 +28,5 @@ jobs:
     - name: Make Deploy
       run: |
         make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
+        ls -l
         make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
