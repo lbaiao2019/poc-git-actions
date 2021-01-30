@@ -31,6 +31,12 @@ jobs:
     - name: Terraform Plan Status
       id: plan
       working-directory: ${{env.WORKDIR}}
-      run: |
-        export GO111MODULE=on
+      run: |        
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
+        terraform_exitcode=$?
+        if [ $terraform_exitcode -eq 2 ]; then
+          echo "Terraform succeeded with updates"
+        else
+          echo "ERROR: terraform exited with code $terraform_exitcode"
+          exit 1
+        fi        
