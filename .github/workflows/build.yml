@@ -29,13 +29,12 @@ jobs:
       with:
         terraform_version: ${{env.TF_VERSION}}
       
-    - name: PLanning
+    - name: Terraform Plan Status
       id: plan
-      working-directory: ${{env.WORKDIR}}
+      continue-on-error: true
       run: |
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
-    - name: Building
+    - name: Terraform Apply Status
       id: apply
-      working-directory: ${{env.WORKDIR}}
       run: |
         make apply 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
