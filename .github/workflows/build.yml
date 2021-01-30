@@ -34,15 +34,11 @@ jobs:
       working-directory: ${{env.WORKDIR}}
       run: |
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'     
-        echo ${{ steps.plan.outputs.stdout }}"   
+        echo "Terraform plan returned ${{ steps.plan.outputs.stdout }}"
 
     - name: Building
       id: apply
       working-directory: ${{env.WORKDIR}}
       run: |
-        echo ${{ steps.plan.outputs.stdout }}"           
+        echo "Terraform plan returned ${{ steps.plan.outputs.stdout }}"           
         make apply 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
-        
-        
-        
-        ${{ steps.Plan.outputs.stdout }}"
