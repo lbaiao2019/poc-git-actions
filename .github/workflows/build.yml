@@ -29,9 +29,20 @@ jobs:
       with:
         terraform_version: ${{env.TF_VERSION}}
       
+    - name: PLanning
+      id: plan
+      working-directory: ${{env.WORKDIR}}
+      run: |
+        make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'     
+        echo ${{ steps.plan.outputs.stdout }}"   
+
     - name: Building
       id: apply
       working-directory: ${{env.WORKDIR}}
       run: |
-        make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'        
+        echo ${{ steps.plan.outputs.stdout }}"           
         make apply 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
+        
+        
+        
+        ${{ steps.Plan.outputs.stdout }}"
