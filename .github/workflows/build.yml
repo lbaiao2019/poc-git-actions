@@ -18,7 +18,7 @@ jobs:
       ENVNAME: 'test'
       ACCNAME: 'poc-lbaiao'
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      WORKDIR: './terraform-iac'
+      WORKDIR: './'
 
     steps:
     - name: Checkout Repo
