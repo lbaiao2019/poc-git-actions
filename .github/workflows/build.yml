@@ -35,6 +35,7 @@ jobs:
       run: |
         make plan 'ACCNAME=${{env.ACCNAME}}' 'ENVNAME=${{env.ENVNAME}}' 'REGION=${{env.AWS_REGION}}'
         find . -name tfplan
+        ls -lR
     - name: Building
       id: apply
       working-directory: ${{env.WORKDIR}}
