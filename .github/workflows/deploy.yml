@@ -29,4 +29,5 @@ jobs:
       id: deploy
       working-directory: '.'      
       run: |
+        make plan 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'        
         make apply 'ACCNAME=poc-lbaiao' 'ENVNAME=test' 'REGION=us-east-1'
