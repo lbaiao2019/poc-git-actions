@@ -64,7 +64,8 @@ refresh: init
 
 plan: init
 	terraform plan $(VARS) $(VARFILE) -out tfplan .;EXC=$$?;if [ $$EXC -eq 1 ]; then exit 1; else if [ $$EXC -eq 0 ]; then rm -f tfplan; fi; exit 0; fi;
-
+	pwd
+	ls -l
 apply:
 	terraform apply tfplan
 	rm tfplan
