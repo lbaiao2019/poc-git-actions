@@ -28,14 +28,8 @@ jobs:
       with:
         terraform_version: ${{env.TF_VERSION}}
 
-    - name: Terraform Init
-      run: terraform init
-      
     - name: Terraform Format
       run: terraform fmt -check -diff
-
-    - name: Terraform Validate
-      run: terraform validate
 
     - name: Terraform Plan Status
       id: plan
