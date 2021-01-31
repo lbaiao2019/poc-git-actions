@@ -27,6 +27,9 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: ${{env.TF_VERSION}}
+
+    - name: Check Multiple Arguments Subcommand
+      run: terraform fmt -check -list=true -no-color      
       
     - name: Terraform Plan Status
       id: plan
