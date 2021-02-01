@@ -5,12 +5,6 @@ resource "null_resource" "build" {
   }
 }
 
-data "archive_file" "zip" {
-  type        = "zip"
-  source_dir  = "${path.module}/lambda/"
-  output_path = "/tmp/${var.function_name}.zip"
-}
-
 resource "aws_lambda_layer_version" "python_layer" {
   depends_on          = [null_resource.build]
   layer_name          = var.function_name

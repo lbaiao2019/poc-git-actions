@@ -14,3 +14,7 @@ module "api_module" {
 
   uri = [module.lambda_application.lambda_invoke_arn]
 }
+
+output "invoke_url" {
+  value = module.api_module.deployment_invoke_url
+}

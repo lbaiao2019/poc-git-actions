@@ -57,3 +57,8 @@ resource "aws_api_gateway_usage_plan_key" "default" {
   key_type      = "API_KEY"
   usage_plan_id = aws_api_gateway_usage_plan.default.id
 }
+
+output "deployment_invoke_url" {
+  description = "Deployment invoke url"
+  value       = aws_api_gateway_deployment.default.invoke_url
+}
